@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     createBoard(16);
 })
 
+// COBA TANPA MENULIS APAPUN DI DALAM TAG BODY HTML !!!!!!!
+
 function createBoard(size) {
     const board = document.querySelector('#board');
 
@@ -15,7 +17,7 @@ function createBoard(size) {
         board.insertAdjacentElement('beforeend', div);
         div.classList.add('hoverr');
         div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = "black";
+            div.style.backgroundColor = getRandomColor();
         })
     }
 
@@ -40,7 +42,14 @@ function resetBoard(){
     divs.forEach(div => div.style.backgroundColor = "white");
 }
 
-
+function getRandomColor(){
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for(let i = 0;i < 6;i++){
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 
 
