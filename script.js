@@ -1,3 +1,13 @@
+let mainBoard = document.createElement('main');
+let buttonBoard = document.createElement('button')
+
+buttonBoard.classList.add('btn');
+
+document.body.appendChild(mainBoard);
+document.body.insertBefore(buttonBoard, mainBoard);
+
+buttonBoard.textContent = "Ubah Ukuran Layar";
+
 document.addEventListener('DOMContentLoaded', () => {
     createBoard(16);
 })
@@ -5,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // COBA TANPA MENULIS APAPUN DI DALAM TAG BODY HTML !!!!!!!
 
 function createBoard(size) {
-    const board = document.querySelector('#board');
+    const board = document.querySelector('main');
 
     board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -15,7 +25,6 @@ function createBoard(size) {
     for(let i = 0;i < numDiv;i++){
         let div = document.createElement('div');
         board.insertAdjacentElement('beforeend', div);
-        div.classList.add('hoverr');
         div.addEventListener('mouseover', () => {
             div.style.backgroundColor = getRandomColor();
         })
@@ -34,7 +43,7 @@ function ubahUkuranPiksel() {
     
 }
 
-let btn = document.querySelector('#btn');
+let btn = document.querySelector('.btn');
 btn.addEventListener('click', ubahUkuranPiksel);
 
 function resetBoard(){
